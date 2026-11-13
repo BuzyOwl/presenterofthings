@@ -1,0 +1,12 @@
+{
+  "name": "presenterofthings",
+  "owner": { "name": "Maker of Things" },
+  "description": "PresenterOfThings for Claude: the connector and the deck-design playbook.",
+  "plugins": [
+    {
+      "name": "presenterofthings",
+      "source": "./",
+      "description": "Build, review and polish live, interactive presentations in PresenterOfThings: the connector plus the full design playbook."
+    }
+  ]
+}

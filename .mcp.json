@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "presenterofthings": {
+      "type": "http",
+      "url": "https://aivg-relay.dev357753.workers.dev/mcp"
+    }
+  }
+}
