@@ -5,23 +5,29 @@
 - **the connector** (`https://aivg-relay.dev357753.workers.dev/mcp`): Claude builds and edits your decks directly. The first time, it asks you to sign in with your free PresenterOfThings account (passkey or Google). There is no private link to copy.
 - **the skill** (`skills/presenterofthings`): the deck-design playbook Claude follows (ask the brief first, build, look at every slide, fix, hand over).
 
+## Commands
+
+- `/presenterofthings:new-deck [topic, audience, length]`: brief, three design directions to pick from, then the full build.
+- `/presenterofthings:refresh-deck [deck]`: bring an older deck up to what the tool can do today, as a new version beside the original.
+- `/presenterofthings:review-deck [deck]`: a creative director's review, then fix what you approve.
+- `/presenterofthings:restyle-deck [deck]`: see a deck in other looks, apply the one you pick.
+
 ## Install
 
 ### Claude Code
 
 ```
-/plugin marketplace add BuzyOwl/presenterofthings
-/plugin install presenterofthings@presenterofthings
+/plugin install presenterofthings --marketplace BuzyOwl/presenterofthings
 ```
 
-This repository carries its own `.claude-plugin/marketplace.json`, so it is a one-plugin marketplace. Then type `/mcp`, pick **presenterofthings** and sign in in the browser window that opens. Done: ask *"Make a 10-slide talk on AI for nurses with a quiz."*
+This repository carries its own `.claude-plugin/marketplace.json`, so it is a one-plugin marketplace. Then type `/mcp`, pick **presenterofthings** and sign in in the browser window that opens. Done: ask *"Make a talk on AI for nurses with a quiz. Show me a sample first."*
 
 To try it from a local copy instead: `claude --plugin-dir ./presenterofthings`.
 
 ### Claude (claude.ai, Desktop, Cowork)
 
-1. Settings → Connectors → **Add custom connector** → name it **PresenterOfThings** → URL `https://aivg-relay.dev357753.workers.dev/mcp` → **Add**, then **Connect** and sign in.
-2. Add the skill: zip the `skills/presenterofthings` folder (or download [presenterofthings-skill.zip](https://maker-of-things.pages.dev/kit/presenterofthings-skill.zip)) and upload it under Settings → Capabilities → Skills.
+1. Connector, one click: open [this link](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=PresenterOfThings&connectorUrl=https%3A%2F%2Faivg-relay.dev357753.workers.dev%2Fmcp). Claude shows its **Add custom connector** box with the name and address filled in: click **Add**, then **Connect**, and sign in. By hand: Customize → Connectors → **Add custom connector**.
+2. Skill: Customize → Plugins → **Add** → **Add marketplace** → `BuzyOwl/presenterofthings` → add the plugin (its skill loads at once; the connector is the one from step 1). Or upload the zip ([presenterofthings-skill.zip](https://maker-of-things.pages.dev/kit/presenterofthings-skill.zip)) under Customize → Skills → **+** → **Create skill** → **Upload a skill**.
 
 Other apps (ChatGPT, Codex, Cursor, VS Code) can use the same connector URL; steps are on [Your sessions → Connect your AI](https://maker-of-things.pages.dev/sessions.html).
 
