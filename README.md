@@ -5,6 +5,13 @@
 - **the connector** (`https://aivg-relay.dev357753.workers.dev/mcp`): Claude builds and edits your decks directly. The first time, it asks you to sign in with your free PresenterOfThings account (passkey or Google). There is no private link to copy.
 - **the skill** (`skills/presenterofthings`): the deck-design playbook Claude follows (ask the brief first, build, look at every slide, fix, hand over).
 
+## Commands
+
+- `/presenterofthings:new-deck [topic, audience, length]`: brief, three design directions to pick from, then the full build.
+- `/presenterofthings:refresh-deck [deck]`: bring an older deck up to what the tool can do today, as a new version beside the original.
+- `/presenterofthings:review-deck [deck]`: a creative director's review, then fix what you approve.
+- `/presenterofthings:restyle-deck [deck]`: see a deck in other looks, apply the one you pick.
+
 ## Install
 
 ### Claude Code
