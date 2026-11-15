@@ -14,14 +14,14 @@
 /plugin install presenterofthings@presenterofthings
 ```
 
-This repository carries its own `.claude-plugin/marketplace.json`, so it is a one-plugin marketplace. Then type `/mcp`, pick **presenterofthings** and sign in in the browser window that opens. Done: ask *"Make a 10-slide talk on AI for nurses with a quiz."*
+This repository carries its own `.claude-plugin/marketplace.json`, so it is a one-plugin marketplace. Then type `/mcp`, pick **presenterofthings** and sign in in the browser window that opens. Done: ask *"Make a talk on AI for nurses with a quiz. Show me a sample first."*
 
 To try it from a local copy instead: `claude --plugin-dir ./presenterofthings`.
 
 ### Claude (claude.ai, Desktop, Cowork)
 
-1. Settings → Connectors → **Add custom connector** → name it **PresenterOfThings** → URL `https://aivg-relay.dev357753.workers.dev/mcp` → **Add**, then **Connect** and sign in.
-2. Add the skill: zip the `skills/presenterofthings` folder (or download [presenterofthings-skill.zip](https://maker-of-things.pages.dev/kit/presenterofthings-skill.zip)) and upload it under Settings → Capabilities → Skills.
+1. Customize → Connectors → **Add custom connector** → name it **PresenterOfThings** → URL `https://aivg-relay.dev357753.workers.dev/mcp` → **Add**, then **Connect** and sign in.
+2. Add the skill: zip the `skills/presenterofthings` folder (or download [presenterofthings-skill.zip](https://maker-of-things.pages.dev/kit/presenterofthings-skill.zip)) and upload it under Customize → Skills.
 
 Other apps (ChatGPT, Codex, Cursor, VS Code) can use the same connector URL; steps are on [Your sessions → Connect your AI](https://maker-of-things.pages.dev/sessions.html).
 

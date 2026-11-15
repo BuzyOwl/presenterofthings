@@ -9,12 +9,13 @@ PresenterOfThings is not a slide file. Every card is a live web page the room ca
 
 ## The loop (every new deck)
 
-1. **Ask the brief first**, in one message, each question with its default: who is in the room and for how long; formal or informal; colourful or plain; should the room take part on phones (poll, word cloud, quiz, Q&A, feedback form); rich graphics or minimal; research and links, or only their material. Wait for the answers.
+1. **Ask the brief first**, in one message, each question with its default: who is in the room and for how long; formal or informal; colourful or plain; should the room take part on phones (poll, word cloud, quiz, Q&A, feedback form); rich graphics or minimal; research and links, or only their material; anything that must be in it or stay out; a 3-card sample first (the default) or all in one go. Wait for the answers.
 2. **Read the format once**: call `get_format`. It is the full specification: fields, visuals, looks, checks, and the design guidance this skill summarises.
 3. **Plan before cards**: the story in sections (`section` on the first card of each part), one finding per card, where the room acts (a poll before a reveal, a quiz near the end, Q&A last), and one **signature** the deck owns (an accent word on every section opener, one colour that marks the answer, the presenter's own photos).
-4. **Build** with `create_session` (put the answers in `brief`, set `purpose` and `minutes`).
-5. **Look at it**: `preview_deck` (12 cards a call, contact sheets). Do the director's pass below and fix with `edit_cards`, `update_card`, `set_theme`. Check changed cards full size with `preview_card`.
-6. **Hand over** the "Open it" link from the tool result. Do not also write a PowerPoint, PDF or HTML file: the deck lives in PresenterOfThings and exports to PowerPoint from the website.
+4. **Build** with `create_session`: everything goes inside `session`, as `{ title, brief, purpose, minutes, cards: [...] }`. `brief` is an object, not prose: `{ audience, tone: formal|informal, style: colourful|plain, interact: [poll, wordcloud, quiz, qa, form], graphics: rich|minimal, links, research }`. Without it the deck is refused. Add `must` (what has to be in or out, their words) and, only if they said to build it all in one go, `sample: "skip"`.
+5. **Sample first**: the first `create_session` is three cards only: the cover, one content card that shows the style, one card the room takes part in. The result gives links to that sample in three looks. Give the presenter those links, ask which look and what to change, and wait. Then `set_theme` if they picked another look, fix what they said, and add the rest to the same deck with `edit_cards`. More than six cards at once is refused without `sample: "skip"`.
+6. **Look at it**: `preview_deck` (12 cards a call, contact sheets). Do the director's pass below and fix with `edit_cards`, `update_card`, `set_theme`. Check changed cards full size with `preview_card`.
+7. **Hand over**: check the brief's `must` item by item, give the "Open it" link from the tool result, and ask "How close is this, and what would you change?" Make those changes in place. Do not also write a PowerPoint, PDF or HTML file: the deck lives in PresenterOfThings and exports to PowerPoint from the website.
 
 Changing an existing deck: `list_sessions`, then edit only the cards asked about. A new look is `set_theme` on the same deck; a whole new design is `create_session` with `version_of`.
 
@@ -26,7 +27,7 @@ Look at every contact sheet and fix until each answer is yes:
 - **Squint test**: at half size, each card shows one thing first.
 - **Rhythm**: loud, quiet, a picture, a question to the room. Three neighbours that look alike: change one composition.
 - **Fill or breathe, never float**: no small object in the middle of a large blank card. Enlarge it, put it beside the headline (`split`), or cut it.
-- **The right component**: a comparison → `compare` or a `blocks` row of cards; change over time → `chart`; a process → `diagram` (builds on clicks); a reveal → `flip` or a `poll` first; a price list or scorecard → `blocks` cards, not a table.
+- **The right component**: a comparison → `compare` or a `blocks` row of cards; change over time → `chart`; a process → `diagram` (builds on clicks); dated events, a cycle, the parts of a thing, a place, a decision, states or choices → `explainer` (a chart the presenter plays: timeline, clock, exploded view, scene, flowchart, comic, flow machine, game board, catalogue; only when the shape of the content is the point); a reveal → `flip` or a `poll` first; a price list or scorecard → `blocks` cards, not a table.
 - **Action headers**: titles state the finding with its number or verb ("HeyGen doubled in eight months"), never the topic.
 - **Would a person with taste ship it?** If a card looks like a template, it is one.
 
@@ -47,3 +48,7 @@ Look at every contact sheet and fix until each answer is yes:
 - **Notes are the script**: `notes.say` is what the presenter will actually say (about 130 words a minute; the checker compares it with `minutes`).
 
 You cannot show anything to the audience or send anything to phones: the presenter does that in the cockpit.
+
+## When something breaks
+
+If something breaks, a tool keeps failing, or the presenter wants a feature, offer to send it with `send_feedback` (kind `bug`, `error`, `feature` or `suggestion`; put the tool name and error in `context`; `via: "plugin"`). Show the presenter the exact text first and send only after they say yes.
