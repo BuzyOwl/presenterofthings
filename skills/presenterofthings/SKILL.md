@@ -22,6 +22,8 @@ Refreshing an older deck ("update it", "make it use the new features"): `refresh
 
 Changing an existing deck: `list_sessions`, then edit only the cards asked about. A new look is `set_theme` on the same deck; a whole new design is `create_session` with `version_of`.
 
+**Change, add and delete are different.** "Change / update / fix / redo slide 7" = `update_card` on that card: same id, same place. "Add a slide after 7" = `add_card` with `after_card_id` = slide 7's id: slide 7 stays. Delete a slide only when the presenter asked, in their words, to delete or remove it, never to "replace" it with a new card; the server refuses a deletion without `confirm_delete: ["<card id>"]`. Unclear ("replace slide 7 with…")? Ask: "Shall I rewrite slide 7 “<title>” in place, or keep it and add a new slide after it?" Slide numbers are the `n` in `get_outline` (the top-bar counter; the cover is not counted): say the title back if they might count differently. Afterwards tell them what changed in the tool result's words ("Updated slide 7 “…”", "Inserted new slide 8 after “…”", "Deleted slide 7 “…”: undo is available"); `undo_last_change` brings a deleted slide back.
+
 ## The director's pass
 
 Look at every contact sheet and fix until each answer is yes:
@@ -47,8 +49,9 @@ Look at every contact sheet and fix until each answer is yes:
 
 - **The room takes part**: polls, word clouds, quizzes with a live leaderboard, Q&A with upvotes, feedback forms, all from phones via the join code. Put one every few cards in a lesson; open with a warm-up poll.
 - **Things the presenter touches**: flip cards, myth or fact, diagrams that build step by step, races, galleries, `blocks` cards that turn over.
-- **Links open on the projector** inside the deck; put sources on the card (`doc`, `props`) so the presenter shows them without leaving the slides.
-- **Notes are the script**: `notes.say` is what the presenter will actually say (about 130 words a minute; the checker compares it with `minutes`).
+- **Links open on the projector** inside the deck. Two places, and they are different: **on the slide** (visible and clickable during the talk) is `doc: { label, url }` (one link at the slide's foot, shown as "📘 Official: label ↗") or a `gallery` visual with a `url` per tile, or on a canvas card any text, image or shape with `href: "https://…"` (that box becomes the link); **in the cockpit's Links & files panel** (the presenter opens them on stage or sends them to phones; nothing on the slide) is `props` / `add_links`. `<a>` in text shows as plain text: use `href`.
+- **Click to move on, timed slides, the circle transition**: a canvas text, image or shape with `go: "next" | "prev" | "<card id>"` moves there when tapped ("when I tap the dot, open the next slide" = the dot with `go: "next"` and the next card's `transition: "iris"`); a card's `auto: N` (2–600 s) moves on by itself, never on a live poll, quiz, myth/fact, Q&A or form card. These are supported: build them, don't refuse. Asked for links without saying where? Ask: "On the slide itself, or in your links panel for phones?"
+- **Notes are the script**: `notes.say` is exactly what the presenter will say out loud (about 130 words a minute; the checker compares it with `minutes`). They read it from the teleprompter, so nothing else goes in it: no labels, stage directions or reminders (those go in `notes.ask`, `notes.try`, `notes.dont`, or nowhere). Short sentences, `- ` for a list, a blank line for a beat.
 
 You cannot show anything to the audience or send anything to phones: the presenter does that in the cockpit.
 
