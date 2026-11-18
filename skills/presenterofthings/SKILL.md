@@ -57,11 +57,11 @@ You cannot send anything to phones or change what the audience sees: the present
 
 ## Marks on the live slide (`annotate_live`)
 
-While the presenter is presenting and has turned on **Let my AI mark the slides** in the cockpit (off by default, per deck), `annotate_live` circles, boxes, underlines, points at or draws an arrow on the slide the room is looking at, hand-drawn on the projector.
+While the presenter is presenting and has turned on **Let my AI mark the slides** in the cockpit (off by default, per deck), `annotate_live` circles, boxes, underlines, points at or draws an arrow on the slide the room is looking at, hand-drawn on the projector. **No `session_id` is needed**: left out, it marks the deck on air. Marks show only in the laptop's audience window (after **▶ Present**), not on Cast or the /tv screen.
 - **Only when asked**: the presenter says "circle the chart", or you answer a question about what is on screen and the mark shows what your answer is about. Never spontaneously, never to decorate, never on another slide.
 - **Pass the slide's `card_id`** (from `get_outline`); a different slide on screen is refused, and the refusal says which one is showing. Leave it out to mark whatever is showing.
 - **`marks`: tags only, 1–3 is best, at most 6.** Prefer anchors: `[CIRCLE:@visual:the spike]`, `[UNDERLINE:@title]`, `[POINT:@takeaway:this]`, `[RECT:@3:label]` (canvas element 3), `[ARROW:@1->@4:label]`, `[CLEAR]`. Otherwise numbers 0–1000 of the slide (0,0 top left): `[RECT:x1,y1,x2,y2:label]`, `[CIRCLE:x,y,r:label]`. Labels 1–4 words. `delay` (0–10 s) lands a mark as you finish a sentence.
-- **Refused** when the deck is not being presented, the switch is off, or the slide is another one: tell the presenter why in one line and do not retry on your own. The presenter clears marks with one tap (or Esc / C); a new slide clears them too.
+- **Refused** when nothing is on air, the switch is off, another deck is on air (the refusal names it and its id) or the slide is another one: the refusal says what the presenter must do; tell them in one line and try again once they have. The presenter clears marks with one tap (or Esc / C); a new slide clears them too.
 
 ## When something breaks
 
