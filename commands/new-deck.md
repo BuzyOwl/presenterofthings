@@ -7,7 +7,7 @@ Make a new deck in PresenterOfThings about: $ARGUMENTS
 
 Follow the presenterofthings skill exactly:
 
-1. Ask the brief in one message (skip what the request already answers), and wait.
+1. Ask the brief in one message (skip what the request already answers), and wait. If the deck demos a tool, website, app or workflow, add to that message: the screens you plan to show, which parts matter or can be skipped, and whether they will paste screenshots (cheaper) or want you to capture them. Then capture public pages with `snap_link`, keep their pasted screenshots with `add_picture`, and build each flow as a `walkthrough` with marks on what to click (skill: Tool and website demos).
 2. Call `get_format` once.
 3. If they chose a template: `show_templates`, wait for the pick, `get_template`, then build the whole deck in that style with `template` in the brief, and go to step 6. Otherwise work out what the deck is for (to teach, to sell, to report, to move people). Design **three directions**: three openings of this talk as three different designers would make them: another angle on the story, another composition, another kind of visual, another look. Two cards each. Create them with `create_session` and `directions`. (If the connector has no `directions` or `show_sample` yet, make one 3-card sample instead and show it with `preview_deck`.)
 4. Call `show_sample`. If a picker appears in the chat, wait for the choice. Otherwise give the three links, ask which direction and what to change, and wait.

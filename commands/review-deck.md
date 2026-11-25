@@ -6,6 +6,6 @@ argument-hint: "[deck title]"
 Review this PresenterOfThings deck: $ARGUMENTS
 
 1. `list_sessions`, find it, then `check_session` and `preview_deck` (every contact sheet).
-2. Do the director's pass from the presenterofthings skill: one signature, the squint test, rhythm, fill or breathe, the right component, action headers.
+2. Do the director's pass from the presenterofthings skill: one signature, the squint test, rhythm, fill or breathe, the right component, action headers, real screens (a tool demo without real screenshots is a finding), and the humour check (too often, punching down, a touchy subject, a borrowed meme, or any joke on a serious topic).
 3. Report at most seven findings, worst first: the card, what is wrong, the fix. Say what is already good in one line.
 4. Ask which to fix. Fix only those, in place (`edit_cards`), then `preview_card` on each changed card.
