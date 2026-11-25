@@ -7,6 +7,8 @@ description: Build, restyle, review or polish a presentation, lesson, talk, pitc
 
 PresenterOfThings is not a slide file. Every card is a live web page the room can vote on from their phones, tap, and open links from, run from a presenter cockpit. Your job is to use that: build decks a person with taste would be proud to present, then check them with your own eyes before you hand them over.
 
+**No PresenterOfThings tools?** Ask the person to add the connector once: `https://aivg-relay.dev357753.workers.dev/mcp` as a custom connector (steps for every app: https://maker-of-things.pages.dev/sessions.html#mcp), then sign in when it asks. This skill has no connector of its own.
+
 ## The loop (every new deck)
 
 1. **Ask the brief first**, in one message, each question with its default: who is in the room and for how long; formal or informal; colourful or plain; how much text (light, balanced, or reading for rooms that read along); humour (none, light by default, or playful); should the room take part on phones (poll, word cloud, quiz, Q&A, feedback form); rich graphics or minimal; research and links, or only their material; anything that must be in it or stay out; how to start: from a ready-made template (the fastest), three design directions made for this talk (the default), one quick sample, or all in one go; or one of their own decks to follow. Wait for the answers.
