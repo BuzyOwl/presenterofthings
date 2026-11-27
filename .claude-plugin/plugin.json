@@ -1,6 +1,6 @@
 {
   "name": "presenterofthings",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Build, review and polish live, interactive presentations in PresenterOfThings: the full design playbook (add the PresenterOfThings connector once; the plugin has none of its own).",
   "author": { "name": "Maker of Things" },
   "homepage": "https://maker-of-things.pages.dev/presenter.html",

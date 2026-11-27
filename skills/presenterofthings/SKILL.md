@@ -61,6 +61,20 @@ A deck about a tool, website, app or workflow lives or dies on its **real screen
 - Colour is a state system: neutral content, one accent for the thing to look at, green and red only for good and bad in data.
 - Plain words: no dash asides, no "not just X, but Y", no unlock / elevate / seamless / game-changing.
 - At most three text sizes on a card; nothing smaller than the footnote size; never shrink text to fit more in: cut or split.
+- Word limits are suggestions, not rules. If the presenter wants a long card (a quote, a definition, a prompt the room copies), keep it and fit it with `layout: "statement"` or a `split`, not smaller type.
+
+## Teach one thing properly
+
+- **Depth over breadth.** One concept explained well, with a picture, an example and a try, beats four concepts named in passing. When time is short, cut topics, not the explanation.
+- **Build-alongs need a preparation slide** before the build: what to have open (laptop, browser, an account), the open repo link, and the exact prompt to copy (big on screen as a `terminal` visual, plus the card's `copy` field so the presenter copies it in one click). Put every link in `props` too, so the presenter presses **S** and phones get them.
+- **Handouts go in `props`**: a free PDF of the lesson, the slides, a second deck. Name them plainly ("Lesson PDF (free)").
+- **Show how it was built at a glance**: one `diagram` (kind `flow` or `hub`) of the real parts, five boxes or fewer, before any detail.
+
+## Videos, the book draw and the stage keys
+
+- **Video on a slide**: a Google Drive link works as `{ "type": "video", "src": "https://drive.google.com/file/d/<id>/view" }`. The file must be shared "Anyone with the link". Enter or a click plays it full window; Esc puts it away. Drive's direct download links do not play in a browser: use the normal `/view` link.
+- **Book idea draw** (`draw`): each phone that scans gets one idea from a list of 2–8 (5–7 makes good groups), and people with the same idea meet as a group. See `get_format` → draw.
+- **Keys the presenter uses** (the same on the projector and the cockpit): → / ← next and back, ↓ / ↑ steps inside a visual (tiles, steps, a quiz), **A** asks the room, **Tab** all slides, **O** opens a link, **S** sends links to phones, **C** captions, **V** camera, **D** draw then **C** clear, **B** / **W** black or white screen. **Esc** steps back one thing at a time: a video, then a drawing, then a menu, then all slides. Tell the presenter these in the hand-over when the deck uses them.
 
 ## What sets PresenterOfThings apart (use it)
 
